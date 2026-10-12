@@ -1,44 +1,69 @@
+# Proje Yazarı: Adınız Soyadınız
+# Projenin Adı: Kod-Asistan v0.1
+# Ders: Programlama Temelleri
 
-Proje Adı: Kod Asistanım (kod_asistanim)
-Açıklama: 9. Sınıf Programlama Temelleri dersi için hazırlanan temel Python uygulaması.
-"""
+def hesapla():
+    """1: Hesap Makinesi İşlevi"""
+    print("\n--- HESAP MAKİNESİ MODÜLÜ ---")
+    try:
+        sayi1 = float(input("1. Sayıyı giriniz: "))
+        sayi2 = float(input("2. Sayıyı giriniz: "))
+        islem = input("Yapmak istediğiniz işlem (+, -, *, /): ")
+        
+        if islem == "+":
+            print(f"Sonuç: {sayi1 + sayi2}")
+        elif islem == "-":
+            print(f"Sonuç: {sayi1 - sayi2}")
+        elif islem == "*":
+            print(f"Sonuç: {sayi1 * sayi2}")
+        elif islem == "/":
+            if sayi2 != 0:
+                print(f"Sonuç: {sayi1 / sayi2}")
+            else:
+                print("Hata: Bir sayı sıfıra bölünemez!")
+        else:
+            print("Geçersiz işlem seçimi!")
+    except ValueError:
+        print("Hata: Lütfen geçerli bir sayı giriniz!")
 
-def karsilama_yap(kullanici_adi):
-    """Kullanıcıya hoş geldin mesajı verir."""
-    print(f"========================================")
-    print(f"  Merhabalar, {kullanici_adi}! Projeye Hoş Geldin.")
-    print(f"========================================")
+def oyna():
+    """2: Sayı Tahmini İşlevi"""
+    print("\n--- SAYI TAHMİN MODÜLÜ ---")
+    gizli_sayi = 7
+    try:
+        tahmin = int(input("1 ile 10 arasında bir sayı tahmin ediniz: "))
+        if tahmin == gizli_sayi:
+            print("Tebrikler! Doğru tahmin ettiniz. 🎉")
+        else:
+            print(f"Maalesef yanlış. Doğru sayı {gizli_sayi} olmalıydı.")
+    except ValueError:
+        print("Hata: Lütfen bir tam sayı giriniz!")
 
-def ortalama_hesapla(not1, not2, not3):
-    """Girilen 3 notun ortalamasını hesaplar ve geçme durumunu söyler."""
-    ortalama = (not1 + not2 + not3) / 3
-    print(f"\n[Not Hesaplama Modülü]")
-    print(f"Girilen Notlar: {not1}, {not2}, {not3}")
-    print(f"Ortalama: {ortalama:.2f}")
+def ana_program():
+    """Sözde Koddaki Akış Mantığı (KRİTİK EŞİK)"""
+    print("==========================================")
+    print("      KOD-ASİSTAN v0.1 ÇALIŞTIRILDI       ")
+    print("==========================================")
     
-    if ortalama >= 50:
-        print("Durum: Geçti 🥳")
+    kullanici_giris = input("Kullanıcı adınızı giriniz: ").strip()
+    
+    # EĞER KULLANICI_GIRIS boş değilse:
+    if kullanici_giris != "":
+        print(f"\nHoş geldin, {kullanici_giris}!")
+        print("1: Hesap Makinesi")
+        print("2: Sayı Tahmini")
+        
+        islem = input("Lütfen yapacağınız işlemi seçiniz (1/2): ").strip()
+        
+        if islem == "1":
+            hesapla()
+        elif islem == "2":
+            oyna()
+        else:
+            print("Geçersiz seçim!")
     else:
-        print("Durum: Kaldı 📚")
+        print("Hata: Kullanıcı adı boş bırakılamaz!")
 
-def sayi_tahmin_ipucu(gizli_sayi, tahmin):
-    """Basit bir sayı karşılaştırma mantığı."""
-    print(f"\n[Sayı Tahmin Modülü]")
-    print(f"Tahmin Edilen Sayı: {tahmin}")
-    if tahmin == gizli_sayi:
-        print("Tebrikler! Doğru tahmin.")
-    elif tahmin < gizli_sayi:
-        print("İpucu: Daha *büyük* bir sayı dene.")
-    else:
-        print("İpucu: Daha *küçük* bir sayı dene.")
-
-# Ana Çalıştırma Alanı
 if __name__ == "__main__":
-    # 1. Karşılama Fonksiyonu
-    karsilama_yap("Öğrenci")
-    
-    # 2. Not Ortalaması Örneği
-    ortalama_hesapla(70, 85, 90)
-    
-    # 3. Sayı Tahmin Örneği
-    sayi_tahmin_ipucu(42, 35)
+    ana_program()
+
