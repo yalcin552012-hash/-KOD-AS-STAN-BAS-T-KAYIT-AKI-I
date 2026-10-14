@@ -1,4 +1,4 @@
-# Proje Yazarı: Adınız Soyadınız
+# Proje Yazarı:Yalçın arslan
 # Projenin Adı: Kod-Asistan v0.1
 # Ders: Programlama Temelleri
 
